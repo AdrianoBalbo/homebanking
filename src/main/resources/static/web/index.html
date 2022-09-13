@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="index.css" />
+    <title>Sign in & Sign up Form</title>
+    <link rel="shortcut icon" href="../assets/img/leaf.png" type="image/x-icon">
+
+</head>
+
+<body>
+    <div class="container" id="app">
+        <div class="forms-container">
+            <video autoplay muted loop id="myVideo">
+                <source src="../assets/vid/7btrrd.mp4" type="video/mp4">
+            </video>
+            <div class="signin-signup">
+                <form action="#" class="sign-in-form" @submit.prevent="">
+                    <h2 class="title">Sign in</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" v-model="userMail" placeholder="Email" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" v-model="userPassword" placeholder="Password" />
+                    </div>
+                    <input type="submit" @click="login" value="Login" class="btn solid" />
+                    <p class="social-text">Or Sign in with social platforms</p>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/home" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.google.com" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/feed/" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </form>
+                <form action="#" class="sign-up-form" @submit.prevent="">
+                    <h2 class="title">Sign up</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" v-model="newFirstName" placeholder="First Name" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" v-model="newLastName" placeholder="Last Name" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" v-model="newEmail" placeholder="Email" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" v-model="newPassword" placeholder="Password" />
+                    </div>
+                    <input type="submit" class="btn" @click="register" value="Sign up" />
+                    <p class="social-text">Or Sign up with social platforms</p>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/home" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.google.com" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/feed/" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>New here ?</h3>
+                    <p>
+                        We are always willing to receive new clients, try registering!
+                    </p>
+                    <button class="btn transparent"  @click="toggleSignUpIn" id="sign-up-btn">
+                        Sign up
+                    </button>
+                </div>
+                <img src="/assets/img/log.svg" class="image" alt="" />
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>One of us ?</h3>
+                    <p>
+                        Already a client? We miss you! Don't waste more time, Let's login!
+                    </p>
+                    <button class="btn transparent"  @click="toggleSignUpIn" id="sign-in-btn">
+                        Sign in
+                    </button>
+                </div>
+                <img src="/assets/img/register.svg" class="image" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="d-flex justify-content-center">
+            <p>Contact: <a href="mailto:admin@mindbank.com">admin@mindbank.com</a></p>
+            <p>&copy; MindBank || a  MindHub&reg; proyect.</p>
+            <p>Boosted By Adriano Balbo</p>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

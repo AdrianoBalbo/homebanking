@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Account</title>
+    <!-- la etiqueta "meta" de abajo nos ayuda a que ande el responsive xd -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="shortcut icon" href="../assets/img/leaf.png" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- ROBADO -->
+        <video autoplay muted loop id="myVideo">
+            <source src="../assets/vid/7btrrd.mp4" type="video/mp4">
+        </video>
+        <div class="center d-flex flex-column flex-md-row">
+            <div class="left d-md-flex flex-column align-items-center d-none">
+                <div class="logo col-5">
+                    <img src="../assets/img/leaf.png" alt="leaf">
+                </div>
+                <div class="company">
+                    <div class="company-name">MindBank</div>
+                    <div class="company-description">Where your capital is safe</div>
+                </div>
+                <div class="navigation">
+                    <ul>
+                        <li>
+                            <a href="./accounts.html" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/dollar.png" alt="">
+                                </i>
+                                <span>Accounts</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./cards.html" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/credit-card.png" alt="">
+                                </i>
+                                <span>Cards</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./transfers.html" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/transferencia-de-dinero.png" alt="">
+                                </i>
+                                <span>Transfers</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/user.png" alt="">
+                                </i>
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/paper-airplane.png" alt="">
+                                </i>
+                                <span>Contact</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a @click="logout()" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/turn-off.png" alt="">
+                                </i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                        <!-- <li> <i class="material-icons">:D</i><span>News</span></li>
+                        <li><i class="material-icons">:D</i><span>Account</span></li> -->
+                    </ul>
+                </div>
+            </div>
+
+            <div class="left2 d-md-none flex-column  align-items-center d-flex col-12">
+                <div class="d-flex flex-column align-items-center">
+                    <div class="logo">
+                        <img src="../assets/img/leaf.png" alt="leaf">
+                        <div class="company">
+                            <div class="company-name">MindBank</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation2 d-flex align-items-center flex-column">
+                    <ul class="d-flex p-1">
+                        <li>
+                            <a href="./accounts.html" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/dollar.png" alt="">
+                                </i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./cards.html" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/credit-card.png" alt="">
+                                </i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./transfers.html" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/transferencia-de-dinero.png" alt="">
+                                </i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="d-flex p-1">
+                        <li>
+                            <a href="#" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/user.png" alt="">
+                                </i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/paper-airplane.png" alt="">
+                                </i>
+                            </a>
+                        </li>
+                        <li>
+                            <a @click="logout()" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/turn-off.png" alt="">
+                                </i>
+                            </a>
+                        </li>
+                        <!-- <li> <i class="material-icons">:D</i><span>News</span></li>
+                        <li><i class="material-icons">:D</i><span>Account</span></li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <div class="title text-center mt-5 p-2">Your Transactions </div>
+                <div class="description d-flex justify-content-center p-2">
+                    <h5>In this dashboard you can see your movements in the account number {{accounts.number}}.</h5>
+                </div>
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <p class="mb-n-2">To print your transactions please especify the dates bellow</p>
+                    <form @submit.prevent="" action="" class="d-flex flex-wrap justify-content-center align-items-center">
+                        <div>
+                            <label for="formDate">From:</label>
+                            <input type="date" v-model="fromDate" name="fromDate" id="fromDate" class="m-1">
+                        </div>
+                        <div>
+                            <label for="toDate">To:</label>
+                            <input type="date" v-model="toDate" name="toDate" id="toDate" class="m-1">
+                        </div>
+                        <button @click="printTransaction" class="btn btn-dark m-3">
+                            Print Transactions
+                        </button>
+                    </form>
+                </div>
+                <div class="row mt-5 pt-3 table-responsive">
+                    <table class="table container-fluid text-center " v-if="transactions.length > 0">
+                        <thead>
+                            <tr>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Post Transaction Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="transaction in transactions">
+                                <td>${{transaction.amount}}</td>
+                                <td style="color: #d12639;" v-if="transaction.type == 'DEBIT'">{{transaction.type}}</td>
+                                <td style="color: rgb(65, 173, 65);" v-else="">{{transaction.type}}</td>
+                                <td>{{transaction.description}}</td>
+                                <td>{{transaction.date}}</td>
+                                <td>${{transaction.postTransaction}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3 v-if="transactions.length == 0" class="description d-flex justify-content-center">No
+                        transactions found.</h3>
+                </div>
+            </div>
+        </div>
+        <!-- ROBADO -->
+    </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./account.js"></script>
+</body>
+
+</html>

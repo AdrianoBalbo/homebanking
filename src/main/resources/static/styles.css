@@ -1,0 +1,37 @@
+header{
+    height: 10vh;
+}
+.nav{
+    background-color: #2F2504;
+    height:  100%;
+    font-size: 3vh;
+
+}
+
+a{
+    color: #A5AE9E !important;
+    text-decoration: none !important;
+
+}
+
+
+a:hover{
+    transition: 100ms;
+    color: #D0DDD7 !important;
+
+}
+
+main{
+    min-height: 80vh;
+    background-color: #7E846B;
+}
+
+footer{
+    height: 10vh;
+    background-color: #594E36;
+}
+
+.cardColor{
+    background-color: #594E36 !important;
+    color: #D0DDD7;
+}

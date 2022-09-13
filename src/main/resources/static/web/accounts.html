@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Your accounts</title>
+    <!-- la etiqueta "meta" de abajo nos ayuda a que ande el responsive xd -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS only -->
+    <link rel="shortcut icon" href="../assets/img/leaf.png" type="image/x-icon">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <div id="app">
+        <!-- ROBADO -->
+        <video autoplay muted loop id="myVideo">
+            <source src="../assets/vid/7btrrd.mp4" type="video/mp4">
+        </video>
+        <div class="center d-flex flex-column flex-md-row">
+            <div class="left d-md-flex flex-column align-items-center d-none">
+                <div class="logo col-5">
+                    <img src="../assets/img/leaf.png" alt="leaf">
+                </div>
+                <div class="company">
+                    <div class="company-name">MindBank</div>
+                    <div class="company-description">Where your capital is safe</div>
+                </div>
+                <div class="navigation">
+                    <ul>
+                        <li>
+                            <a href="#" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/dollar.png" alt="">
+                                </i>
+                                <span>Accounts</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./cards.html" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/credit-card.png" alt="">
+                                </i>
+                                <span>Cards</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./transfers.html" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/transferencia-de-dinero.png" alt="">
+                                </i>
+                                <span>Transfers</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/user.png" alt="">
+                                </i>
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/paper-airplane.png" alt="">
+                                </i>
+                                <span>Contact</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a @click="logout()" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/turn-off.png" alt="">
+                                </i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                        <!-- <li> <i class="material-icons">:D</i><span>News</span></li>
+                        <li><i class="material-icons">:D</i><span>Account</span></li> -->
+                    </ul>
+                </div>
+            </div>
+
+            <div class="left2 d-md-none flex-column  align-items-center d-flex col-12">
+                <div class="d-flex flex-column align-items-center">
+                    <div class="logo">
+                        <img src="../assets/img/leaf.png" alt="leaf">
+                        <div class="company">
+                            <div class="company-name">MindBank</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation2 d-flex align-items-center flex-column">
+                    <ul class="d-flex p-1">
+                        <li>
+                            <a href="#" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/dollar.png" alt="">
+                                </i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./cards.html" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/credit-card.png" alt="">
+                                </i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./transfers.html" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/transferencia-de-dinero.png" alt="">
+                                </i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="d-flex p-1">
+                        <li>
+                            <a href="#" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/user.png" alt="">
+                                </i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/paper-airplane.png" alt="">
+                                </i>
+                            </a>
+                        </li>
+                        <li>
+                            <a @click="logout()" class="d-flex align-items-center">
+                                <i class="material-icons">
+                                    <img src="../assets/img/turn-off.png" alt="">
+                                </i>
+                            </a>
+                        </li>
+                        <!-- <li> <i class="material-icons">:D</i><span>News</span></li>
+                        <li><i class="material-icons">:D</i><span>Account</span></li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <div class="title text-center mt-5 p-2">Welcome back, {{client.firstName}} {{client.lastName}}</div>
+                <div class="description d-flex justify-content-center flex-column align-items-center">
+                    <h5>Your accounts:</h5>
+                    <button v-if="accountsActive.length <= 2" class="btn btn-dark m-1" data-bs-toggle="modal"
+                        data-bs-target="#createAccountModal">
+                        Add Account
+                    </button>
+                    <div class="modal" tabindex="-1" id="createAccountModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">
+                                        Select an Account Type to create it.
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <form class="modal-body">
+                                    <select v-model="accountType" name="" id="">
+                                        <option value="CURRENT">Current Account</option>
+                                        <option value="SAVING">Saving Account</option>
+                                    </select>
+                                </form>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-primary" @click="createAccount">Create
+                                        Account</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-lg-row mt-5 pt-3 d-flex justify-content-around flex-column align-items-center">
+                    <div class="graph m-1" v-for="account in accountsActive">
+                        <span class="d-none d-lg-flex position-absolute align-items-center  text-bg-danger badge m-3">
+                            <p class="m-1">{{account.accountType}}</p>
+                        </span>
+                        <div class="stock-logo paperpillar pt-2">
+                            <i class="fa fa-inverse fa-angle-double-up"></i>
+                        </div>
+                        <div class="mt-2">
+                            <p class="text-center"
+                                style="font-family:&amp;quot;Open Sans&amp;quot;;font-weight:700;font-size:15px;font-style:normal;fill:#6fe8ff;stroke:none;">
+                                Account number {{account.number}}</p>
+                            <div class="d-flex flex-column align-items-center">
+                                <div class="stock-name">
+                                    Balance: ${{account.balance}}
+                                </div>
+                                <div class="stock-info">
+                                    <div class="stock-fullname">
+                                        <a :href="'./account.html?id='+account.id">
+                                            <button class="btn btn-light">See Transactions</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-if="accountsActive.length > 1">
+                    <form @submit.prevent class="d-flex flex-column align-items-center">
+
+                        <label for="deleteAccount" class="my-1">Wanna delete an Account? complete the form
+                            bellow.</label>
+
+                        <select v-model="accountNumber" name="deleteAccount" id="deleteAccount">
+                            <option :value="accountActive.number" v-for="accountActive in accountsActive">
+                                {{accountActive.number}}
+                            </option>
+                        </select>
+
+                        <button @click="deleteAccount" class="btn btn-dark mt-2">Delete</button>
+                    </form>
+                </div>
+
+                <div class="description d-flex justify-content-center flex-column align-items-center">
+                    <h5>Your loans:</h5>
+                    <a href="./loan-application.html">
+                        <button class="btn btn-dark m-1">Apply</button>
+
+                    </a>
+
+                </div>
+                <div class="flex-lg-row pt-3 d-flex justify-content-around flex-column align-items-center">
+                    <div class="graph m-1" v-for="loan in loans">
+                        <div class="stock-logo dandruft pt-2"><i class="fa fa-inverse fa-circle-thin"></i></div>
+                        <div class="mt-2">
+                            <p class="text-center "
+                                style="font-family:&amp;quot;Open Sans&amp;quot;;font-weight:700;font-size:15px;font-style:normal;fill:#6fe8ff;stroke:none;">
+                                {{loan.loanName}} Loan</p>
+                            <div class="d-flex flex-column align-items-center">
+                                <div class="stock-name">
+                                    Amount: ${{loan.amount}}
+                                </div>
+                                <div class="stock-info mt-2">
+                                    <p>
+                                        Payments: {{loan.payments}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ROBADO -->
+
+
+
+
+
+        </div>
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+            crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/vue@3"></script>
+        <script src="./accounts.js"></script>
+</body>
+
+</html>
