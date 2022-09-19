@@ -33,8 +33,9 @@ createApp({
                     this.accounts = this.client.accounts.sort((a,b)=> a.id-b.id);
                     this.loans = this.client.loans.sort((a,b)=> a.id-b.id);
                     this.accountsActive = this.accounts.filter(a => a.accountActive)
-                    console.log(this.accountsActive);
-                    console.log(this.accounts);
+                    this.accounts.forEach(account => account.balance = this.moneyFormatter(account.balance))
+                    this.loans.forEach(loan => loan.amount = this.moneyFormatter(loan.amount))
+
                 })
         },
         logout(){
@@ -54,6 +55,13 @@ createApp({
             .then(()=>swal(response.data)))
             .catch(error=>swal(error.response.data))
 
+        },
+        moneyFormatter(numberToFormat) {
+            let formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+            })
+            return formatter.format(numberToFormat)
         },
     },
     computed: {

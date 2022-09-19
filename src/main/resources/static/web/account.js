@@ -31,6 +31,8 @@ createApp({
                     this.transactions = this.accounts.transactions.sort((a, b) => b.id - a.id)
                     this.shortenDate(this.transactions)
                     this.accountNumber = this.accounts.number
+                    this.transactions.forEach(transaction => transaction.amount = this.moneyFormatter(transaction.amount))
+                    this.transactions.forEach(transaction => transaction.postTransaction= this.moneyFormatter(transaction.postTransaction))
 
                 })
         },
@@ -56,6 +58,13 @@ createApp({
                 });
             })
             .catch(error => swal(error.response.data))
+        },
+        moneyFormatter(numberToFormat) {
+            let formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+            })
+            return formatter.format(numberToFormat)
         },
     },
     computed: {

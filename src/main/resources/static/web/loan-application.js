@@ -44,6 +44,7 @@ createApp({
                     this.loanCar = this.loans.filter(loan => loan.name == "Car")
                     this.loanMortgage = this.loans.filter(loan => loan.name == "Mortgage")
                     this.loanPersonal = this.loans.filter(loan => loan.name == "Personal")
+                    this.loans.forEach(loan=> loan.maxAmount=this.moneyFormatter(loan.maxAmount))
                 })
         },
         logout() {
@@ -62,6 +63,13 @@ createApp({
                                 swal(error.response.data))
                     }
                 })
+        },
+        moneyFormatter(numberToFormat) {
+            let formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+            })
+            return formatter.format(numberToFormat)
         },
     },
     computed: {

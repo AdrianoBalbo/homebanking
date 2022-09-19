@@ -176,11 +176,11 @@
                         <input type="number" v-model="loanAmount" class="m-2" placeholder="Amount" name="amount"
                             id="amount">
                         <label for="amount" v-if="loanType == 'Mortgage'" v-for="loan in loanMortgage">(Max amount for
-                            this loan is ${{loan.maxAmount}} )</label>
+                            this loan is {{loan.maxAmount}} )</label>
                         <label for="amount" v-if="loanType == 'Personal'" v-for="loan in loanPersonal">(Max amount for
-                            this loan is ${{loan.maxAmount}} )</label>
+                            this loan is {{loan.maxAmount}} )</label>
                         <label for="amount" v-if="loanType == 'Car'" v-for="loan in loanCar">(Max amount for this loan
-                            is ${{loan.maxAmount}} )</label>
+                            is {{loan.maxAmount}} )</label>
 
 
                         <label for="destinyAccount" class="mt-3">Select the destiny Account</label>

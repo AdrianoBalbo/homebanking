@@ -154,7 +154,7 @@
                         <select name="originAccount" id="originAccount" class="m-2 form-select" v-model="accountFrom">
                             <option selected disabled hidden>Select Account of Origin</option>
                             <option :value="account.number" v-for="account in accountsActive">{{account.number}} Balance:
-                                ${{account.balance}}</option>
+                                {{account.balance}}</option>
                         </select>
 
                         <label for="transaction-type">Select the transaction type: </label>

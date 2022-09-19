@@ -179,12 +179,12 @@
                         </thead>
                         <tbody>
                             <tr v-for="transaction in transactions">
-                                <td>${{transaction.amount}}</td>
+                                <td>{{transaction.amount}}</td>
                                 <td style="color: #d12639;" v-if="transaction.type == 'DEBIT'">{{transaction.type}}</td>
                                 <td style="color: rgb(65, 173, 65);" v-else="">{{transaction.type}}</td>
                                 <td>{{transaction.description}}</td>
                                 <td>{{transaction.date}}</td>
-                                <td>${{transaction.postTransaction}}</td>
+                                <td>{{transaction.postTransaction}}</td>
                             </tr>
                         </tbody>
                     </table>

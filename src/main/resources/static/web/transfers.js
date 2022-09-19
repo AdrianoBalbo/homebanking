@@ -28,6 +28,7 @@ createApp({
                     this.client = response.data;
                     this.accounts = this.client.accounts;
                     this.accountsActive = this.accounts.filter(a=>a.accountActive)
+                    this.accounts.forEach(account => account.balance=this.moneyFormatter(account.balance))
                 })
         },
         logout() {
@@ -44,6 +45,13 @@ createApp({
                         .then(()=>window.location.href="./accounts.html")
                         .catch(error => swal(error.response.data))
                     }})
+        },
+        moneyFormatter(numberToFormat) {
+            let formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+            })
+            return formatter.format(numberToFormat)
         },
     },
     computed: {
