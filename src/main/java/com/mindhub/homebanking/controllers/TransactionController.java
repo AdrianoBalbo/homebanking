@@ -60,8 +60,20 @@ public class TransactionController {
         Account accountFrom = accountService.findByNumber(numberAccountFrom);
         Account accountTo = accountService.findByNumber(numberAccountTo);
 
-        if (amount<=0 || description.isEmpty() || numberAccountFrom.isEmpty() || numberAccountTo.isEmpty() || amount.toString().isEmpty()){
-            return new ResponseEntity<>("Missing data, the transaction was cancelled.", HttpStatus.FORBIDDEN);
+        if (amount.toString().isEmpty()){
+            return new ResponseEntity<>("Please fill the amount.", HttpStatus.FORBIDDEN);
+        }
+        if (amount<=0){
+            return new ResponseEntity<>("The amount to transfer can't be negative",HttpStatus.FORBIDDEN);
+        }
+        if (description.isEmpty()){
+            return new ResponseEntity<>("Please fill the description!",HttpStatus.FORBIDDEN);
+        }
+        if (numberAccountFrom.isEmpty()){
+            return new ResponseEntity<>("Please select an account of origin.",HttpStatus.FORBIDDEN);
+        }
+        if ( numberAccountTo.isEmpty()){
+            return new ResponseEntity<>("Please select an account to make the transfer.",HttpStatus.FORBIDDEN);
         }
         if(!accountTo.isAccountActive()){
             return new ResponseEntity<>("The account you're trying to reach is actually disabled.", HttpStatus.FORBIDDEN);
