@@ -23,15 +23,6 @@ createApp({
         toggleSignUpIn() {
             this.logContainer.classList.toggle("sign-up-mode")
         },
-        // login() {
-        //     axios.post('/api/login', `email=${this.userMail}&password=${this.userPassword}`, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
-        //         .then(res => {
-        //             window.location.href = "./accounts.html"
-        //             console.log("funciona pai");
-        //         })
-        //         .catch(() => swal("Wrong email or password. Try again."))
-
-        // },
         login(){
             axios.post('/api/login', `email=${this.userMail}&password=${this.userPassword}`)
             .then(response => {
